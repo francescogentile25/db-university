@@ -1,0 +1,18 @@
+SELECT * , YEAR (`date_of_birth`) AS `year_of_birth`
+FROM `students`
+WHERE YEAR (`date_of_birth`) = 1990;
+
+
+SELECT * FROM `courses`
+WHERE `cfu` > 10;
+
+
+SELECT * , 
+DATEDIFF('2023-03-27', '1993-01-01') AS `over_30`
+FROM `students`;
+
+
+SELECT * FROM `courses`
+WHERE `period` = "I semestre" AND `year` = 1;
+
+
