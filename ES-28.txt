@@ -1,10 +1,10 @@
-SELECT * 
+SELECT `students`.*, `degrees`.`name`
 FROM `students`
 JOIN `degrees`
 ON  `students`.`degree_id` = `degrees`.`id`
 WHERE `degrees`.`name`= "Corso di Laurea in Economia";
 
-SELECT * 
+SELECT *
 FROM `courses`
 JOIN `degrees`
 ON `courses` . `degree_id` = `degrees`. `department_id`
@@ -51,3 +51,15 @@ ON `courses`.`degree_id` = `degrees`.`id`
 JOIN `departments`
 ON `degrees`.`department_id` = `departments`.`id`
 WHERE `departments`.`name` = "Dipartimento di Matematica";
+
+GROUP BY 
+
+SELECT `courses`.`year`, COUNT(`courses`.`id`) AS  `iscritti_per_anno`
+FROM `courses`
+JOIN `degrees`
+ON `courses`.`degree_id`= `degrees`.`id`
+JOIN `students`
+ON `degrees`.`id`= `students`.`degree_id`
+GROUP BY `courses`.`year`;
+
+
