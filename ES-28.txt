@@ -62,4 +62,14 @@ JOIN `students`
 ON `degrees`.`id`= `students`.`degree_id`
 GROUP BY `courses`.`year`;
 
-
+SELECT `departments`.`address`, COUNT(`teachers`.`id`) AS `numero_inseganti`
+FROM `departments`
+JOIN `degrees`
+ON `departments` . `id` = `degrees`.`department_id`
+JOIN `courses`
+ON `degrees`.`id` = `courses`. `degree_id`
+JOIN `course_teacher`
+ON  `courses`.`id` = `course_teacher`.`teacher_id`
+JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+GROUP BY `departments`.`address`;
