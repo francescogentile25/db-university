@@ -24,7 +24,7 @@ SELECT * FROM `degrees`
 WHERE `level` = "magistrale";
 
 7.
-SELECT * FROM `departments`;
+SELECT COUNT (*) FROM `departments`;
 
 8.
 SELECT * FROM `teachers`
