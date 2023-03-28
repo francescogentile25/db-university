@@ -4,7 +4,7 @@ JOIN `degrees`
 ON  `students`.`degree_id` = `degrees`.`id`
 WHERE `degrees`.`name`= "Corso di Laurea in Economia";
 
-SELECT *
+SELECT `courses`. *, `departments`.`name`
 FROM `courses`
 JOIN `degrees`
 ON `courses` . `degree_id` = `degrees`. `department_id`
@@ -12,7 +12,7 @@ JOIN `departments`
 ON `degrees`. `department_id` = `departments`. `id`
 WHERE `degrees`. `level` = "magistrale" AND `departments`.`name` = "Dipartimento di Neuroscienze";
 
-SELECT * 
+SELECT `courses` . *, `teachers`. `id`  AS `Giulio Amato`
 FROM `courses`
 JOIN `course_teacher`
 ON `courses`.`id` = `course_teacher` .`teacher_id`
@@ -20,7 +20,7 @@ JOIN `teachers`
 ON `course_teacher` .`teacher_id` = `teachers`. `id`
 WHERE `teachers`. `id` = "44";
 
-SELECT * 
+SELECT `students`. *, `departments`.`name`,`courses`.`name` 
 FROM `students`
 JOIN `degrees`
 ON `students`.`degree_id`= `degrees`.`id`
@@ -31,7 +31,7 @@ ON `degrees`.`id` = `courses`.`degree_id`
 ORDER BY `students`.`surname` ASC;
 
 
-SELECT * 
+SELECT `degrees`. *, `courses`.`name`, `teachers`.`surname`
 FROM `degrees`
 JOIN `courses`
 ON `degrees`.`id` = `courses`.`degree_id`
@@ -40,7 +40,7 @@ ON `courses`.`id` = `course_teacher`.`teacher_id`
 JOIN `teachers`
 ON `course_teacher`.`teacher_id` =`teachers`.`id`;
 
-SELECT * 
+SELECT DISTINCT `teachers`. * , `departments`.`name`
 FROM `teachers`
 JOIN `course_teacher`
 ON `teachers`.`id` = `course_teacher`.`teacher_id`
